@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 class Accordion extends Component{
-state={countries:[], activeIndex:null}
+state={countries:[], activeIndex:null, showMore: false}
 
 componentDidMount(){
     fetch("https://countriesnow.space/api/v0.1/countries/capital")
@@ -11,11 +11,11 @@ componentDidMount(){
 }
 
 render(){
-    const {countries, activeIndex} = this.state
+    const {countries, activeIndex, showMore} = this.state
 
 return(
     <div>
-        {countries.map((country, index)=>(
+        {countries.slice(0, showMore ? countries.length : 100).map((country, index)=>(
             <div key={index}>
                 <button onClick={()=>this.setState((prevState)=>({activeIndex:prevState.activeIndex === index ? null : index}))}> 
                 {country.name} +</button>
@@ -29,6 +29,9 @@ return(
             </div>
 
         ))}
+        <div>
+            <button onClick={() => this.setState({showMore: !showMore})}>{showMore ? "Show Less" : "Show More"}</button>
+            </div>
     </div>
 )
 }

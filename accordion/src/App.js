@@ -1,11 +1,22 @@
 import './App.css';
 import Accordion from './accordClass'
+import AccordionFunc from './accordFunc'
+import {Route, Link, Routes} from 'react-router-dom'
 
 function App() {
   return (
     <div >
       <h1>React Accordion Data</h1>
-      <Accordion />
+      <div>
+        <ul>
+          <li> <Link to="/class">ClassComponent</Link> </li>
+          <li> <Link to="/function">FunctionComponent</Link> </li>
+        </ul>
+      </div>
+      <Routes>
+        <Route path='/class' element={<Accordion />} />
+        <Route path='/function' element={<AccordionFunc />} />
+      </Routes>
     </div>
   );
 }
