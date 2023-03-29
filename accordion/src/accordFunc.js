@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react"
+import './accordClass.css'
 
 const AccordionFunc = ()=>{
     const[countries, setCountries]=useState([])
@@ -14,19 +15,19 @@ const AccordionFunc = ()=>{
     return(
         <div>
             {countries.slice(0, showMore ? countries.length : 100).map((country, index)=>(
-                <div key={index}>
-                    <button onClick={()=>setActiveIndex((prevState =>prevState === index ? null:index))}>{country.name}</button>
+                <div key={index} className="country">
+                    <button className="but" onClick={()=>setActiveIndex((prevState =>prevState === index ? null:index))}>{country.name}</button>
                     {index === activeIndex && (
                         <div>
-                        <p> Capital : {country.capital}</p>
-                        <p> iso2 : {country.iso2}</p>
-                        <p> iso3 : {country.iso3}</p>
+                        <p lassName="capital"> Capital : {country.capital}</p>
+                        <p className="iso2"> iso2 : {country.iso2}</p>
+                        <p className="iso3"> iso3 : {country.iso3}</p>
                         </div>
                     )}
                 </div>
             ))}
             <div>
-            <button onClick={() => setShowMore(!showMore)}>{showMore ? "Show Less" : "Show More"}</button>
+            <button className="show" onClick={() => setShowMore(!showMore)}>{showMore ? "Show Less" : "Show More"}</button>
             </div>
         </div>
     ) 
