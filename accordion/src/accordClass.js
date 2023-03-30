@@ -15,9 +15,9 @@ render(){
     const {countries, activeIndex, showMore} = this.state
 
 return(
-    <div >
+    <div className="country" >
         {countries.slice(0, showMore ? countries.length : 100).map((country, index)=>(
-            <div key={index} className="country">
+            <div key={index} >
                 <button  className="but" onClick={()=>this.setState((prevState)=>({activeIndex:prevState.activeIndex === index ? null : index}))}> 
                 {country.name}</button>
                 {index === activeIndex && (
@@ -30,7 +30,7 @@ return(
             </div>
 
         ))}
-        <div>
+        <div className="show">
             <button className="show" onClick={() => this.setState({showMore: !showMore})}>{showMore ? "Show Less" : "Show More"}</button>
             </div>
     </div>

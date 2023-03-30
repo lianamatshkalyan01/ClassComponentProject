@@ -1,18 +1,17 @@
 body{
-  background-image: url("./background.webp");
-  background-repeat: no-repeat;
   background-size: 100% 340%;
   
 }
 
 .main{
   text-align: center;
-  font-size: 25px;
+  font-size: 35px;
 }
 
 h1{
-  color: green;
+  color:rgb(102,102,153) ;
   margin-top: 2%;
+  
 }
 
 ul{
@@ -21,9 +20,10 @@ ul{
 
 .link{
   font-size: 20px;
-  color: green;
+  color: rgb(150,150,150);
   text-decoration: none;
-  
+  font-size: 30px;
+  font-weight: bold;
 }
 
 

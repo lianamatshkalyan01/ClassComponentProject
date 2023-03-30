@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
 import { useParams, Link} from 'react-router-dom'
+import './newFunc.css'
 
 const AccordionNewFunc = ()=>{
     const {page} = useParams();
@@ -21,20 +22,20 @@ const AccordionNewFunc = ()=>{
     return(
         <div>
             {country.map((country, index)=>(
-                <div key={index}>
-                    <button onClick={()=>setActiveIndex((prevState =>prevState === index ? null:index))}>{country.name}</button>
+                <div key={index} className="country2">
+                    <button className="but2" onClick={()=>setActiveIndex((prevState =>prevState === index ? null:index))}>{country.name}</button>
                     {index === activeIndex && (
                         <div>
-                        <p> Capital : {country.capital}</p>
-                        <p> land_area : {country.land_area}</p>
-                        <p> createdAt : {country.createdAt}</p>
-                        <p> updatedAt : {country.updatedAt}</p>
+                        <p className="capital2"> Capital : {country.capital}</p>
+                        <p className="land_area"> land_area : {country.land_area}</p>
+                        <p className="createdAt"> createdAt : {country.createdAt}</p>
+                        <p className="updatedAt"> updatedAt : {country.updatedAt}</p>
                         </div>
                     )}
                 </div>
             ))}
              <div>
-          {Array.from(Array(pages).keys()).map((el)=><Link to={`/newfunction/${el+1}`} key={el}><button>{el+1}</button></Link>)}
+          {Array.from(Array(pages).keys()).map((el)=><Link to={`/newfunction/${el+1}`} key={el}><button className="but3">{el+1}</button></Link>)}
         </div>
         </div>
     ) 
